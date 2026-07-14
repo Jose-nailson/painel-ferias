@@ -1,1276 +1,254 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel - Gestão de Férias Dinâmico</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f0f0;
-        }
-
-        :root {
-            --name-col: 300px;
-            --month-min: 50px;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #8B1538 0%, #A31E3C 100%);
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #8B1538;
-            font-size: 24px;
-        }
-
-        .title-section {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .painel-text {
-            font-size: 12px;
-            opacity: 0.9;
-            font-weight: 400;
-        }
-
-        .gestao-ferias {
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .user-icon {
-            background: rgba(255,255,255,0.2);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .container {
-            padding: 20px 30px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .filters-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .filter-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #8B1538;
-        }
-
-        .filter-select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .filter-select:hover {
-            border-color: #8B1538;
-        }
-
-        .stats-section {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .colaboradores-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .colaboradores-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #8B1538;
-            margin: 10px 0;
-        }
-
-        .colaboradores-label {
-            font-size: 14px;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .chart-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .chart-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 150px;
-            gap: 10px;
-            padding: 10px 0;
-        }
-
-        .bar-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .bar-value {
-            background: #8B1538;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            min-width: 25px;
-            text-align: center;
-        }
-
-        .bar {
-            width: 100%;
-            background: linear-gradient(180deg, #A31E3C 0%, #8B1538 100%);
-            border-radius: 4px 4px 0 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .bar:hover {
-            background: linear-gradient(180deg, #C42854 0%, #A31E3C 100%);
-            transform: scaleY(1.05);
-        }
-
-        .bar-label {
-            font-size: 12px;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .tabs {
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            display: flex;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            background: #f5f5f5;
-            color: #666;
-            font-weight: 500;
-            border-right: 1px solid #ddd;
-            transition: all 0.3s ease;
-        }
-
-        .tab:last-child {
-            border-right: none;
-        }
-
-        .tab.active {
-            background: #8B1538;
-            color: white;
-        }
-
-        .gantt-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .gantt-header-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .expand-btn {
-            background: #f5f5f5;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .expand-btn:hover {
-            background: #e0e0e0;
-        }
-
-        .timeline-container {
-            overflow-x: hidden;
-            margin-top: 20px;
-        }
-
-        .timeline-header {
-            display: flex;
-            border-bottom: 2px solid #ddd;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-        }
-
-        .name-column {
-            width: var(--name-col);
-            min-width: var(--name-col);
-            padding: 10px;
-            font-weight: 600;
-            color: #8B1538;
-        }
-
-        .months-grid {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(var(--month-min), 1fr));
-            flex: 1 1 0;
-            min-width: 0;
-        }
-
-        .month-header {
-            padding: 10px 5px;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: #666;
-            border-right: 1px solid #f0f0f0;
-        }
-
-        .group-header {
-            background: #f8f8f8;
-            padding: 12px 10px;
-            font-weight: 600;
-            color: #8B1538;
-            border-left: 4px solid #8B1538;
-            margin: 10px 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .expand-icon {
-            font-size: 12px;
-            transition: transform 0.3s;
-        }
-
-        .expand-icon.expanded {
-            transform: rotate(90deg);
-        }
-
-        .timeline-row {
-            display: flex;
-            border-bottom: 1px solid #f0f0f0;
-            min-height: 90px;
-            align-items: stretch;
-            overflow: visible;
-        }
-
-        .timeline-row:hover {
-            background: #fafafa;
-        }
-
-        .employee-cell {
-            width: var(--name-col);
-            min-width: var(--name-col);
-            padding: 10px;
-            font-size: 13px;
-            color: #333;
-        }
-
-        .employee-name {
-            font-weight: 500;
-        }
-
-        .employee-id {
-            font-size: 11px;
-            color: #999;
-            margin-top: 2px;
-            line-height: 1.3;
-        }
-
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(var(--month-min), 1fr));
-            flex: 1 1 0;
-            min-width: 0;
-            position: relative;
-            overflow: visible;
-        }
-
-        .month-cell {
-            border-right: 1px solid #f0f0f0;
-            position: relative;
-            min-height: 90px;
-            overflow: visible;
-        }
-
-        .vacation-bar {
-            position: absolute;
-            height: 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            font-weight: 600;
-            color: white;
-            white-space: nowrap;
-            padding: 0 8px;
-            width: max-content;
-            min-width: 18px;
-            overflow: visible;
-            box-sizing: border-box;
-        }
-
-        .vacation-bar.ferias {
-            background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%);
-            box-shadow: 0 2px 5px rgba(211, 47, 47, 0.4);
-        }
-
-        .vacation-bar.folga {
-            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-            box-shadow: 0 2px 5px rgba(255, 152, 0, 0.4);
-        }
-
-        .vacation-bar.ausencia {
-            background: linear-gradient(135deg, #5E35B1 0%, #4527A0 100%);
-            box-shadow: 0 2px 5px rgba(94, 53, 177, 0.4);
-        }
-
-        .vacation-bar.outros {
-            background: linear-gradient(135deg, #607D8B 0%, #455A64 100%);
-            box-shadow: 0 2px 5px rgba(96, 125, 139, 0.35);
-        }
-
-        .vacation-bar:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(139, 21, 56, 0.4);
-            z-index: 2;
-        }
-
-        .vacation-bar.compact {
-            font-size: 8px;
-            padding: 0 4px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .tooltip {
-            position: fixed;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 12px;
-            pointer-events: none;
-            z-index: 1000;
-            display: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .tooltip.show {
-            display: block;
-        }
-
-        .legend {
-            display: flex;
-            gap: 20px;
-            padding: 15px;
-            background: #f8f8f8;
-            border-radius: 6px;
-            margin-top: 20px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-        }
-
-        .legend-color {
-            width: 30px;
-            height: 16px;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 1200px) {
-            .stats-section {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            :root { --name-col: 240px; }
-        }
-        @media (max-width: 900px) {
-            :root { --name-col: 200px; --month-min: 42px; }
-            .month-header { font-size: 11px; padding: 8px 2px; }
-            .employee-cell { font-size: 12px; }
-        }
-        @media (max-width: 820px) {
-            :root { --name-col: 180px; --month-min: 38px; }
-            .month-header { font-size: 10px; padding: 7px 1px; }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">🏦</div>
-            <div class="title-section">
-                <div class="painel-text">PAINEL</div>
-                <div class="gestao-ferias">GESTÃO DE FÉRIAS</div>
-            </div>
-        </div>
-        <div class="user-icon">👤</div>
-    </header>
-
-    <div class="container">
-        <div class="filters-section">
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label class="filter-label">Centro de Custo:</label>
-                    <select class="filter-select" id="centroFilter">
-                        <option value="">Todos</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Função</label>
-                    <select class="filter-select" id="funcaoFilter">
-                        <option value="">Todos</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Ano</label>
-                    <select class="filter-select" id="anoFilter">
-                        <option value="2025">2025</option>
-                        <option value="2026" selected>2026</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Mês Inicial das Férias</label>
-                    <select class="filter-select" id="mesFilter">
-                        <option value="">Todos</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Funcionário Gestor</label>
-                    <select class="filter-select" id="gestorFilter">
-                        <option value="">Não</option>
-                        <option value="sim">Sim</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label class="filter-label">Funcionário</label>
-                    <select class="filter-select" id="funcionarioFilter">
-                        <option value="">Todos</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="stats-section">
-            <div class="colaboradores-card">
-                <div class="colaboradores-label">Colaboradores Ativos</div>
-                <div class="colaboradores-number" id="totalColaboradores">0</div>
-            </div>
-            <div class="chart-card">
-                <div class="chart-title">Qtd. de Funcionários de Férias/Mês</div>
-                <div class="chart-bars" id="chartBars"></div>
-            </div>
-        </div>
-
-        <div class="tabs">
-            <div class="tab active" data-tab="programadas">Programadas</div>
-            <div class="tab" data-tab="realizadas">Realizadas</div>
-        </div>
-
-        <div class="gantt-section">
-            <div class="gantt-header-controls">
-                <h3 style="color: #8B1538;">Detalhamento Férias</h3>
-                <button class="expand-btn" id="toggleAllBtn" onclick="toggleAll()">▼ Expandir Tudo</button>
-            </div>
-            <div class="timeline-container">
-                <div class="timeline-header">
-                    <div class="name-column"></div>
-                    <div class="months-grid">
-                        <div class="month-header">janeiro</div>
-                        <div class="month-header">fevereiro</div>
-                        <div class="month-header">março</div>
-                        <div class="month-header">abril</div>
-                        <div class="month-header">maio</div>
-                        <div class="month-header">junho</div>
-                        <div class="month-header">julho</div>
-                        <div class="month-header">agosto</div>
-                        <div class="month-header">setembro</div>
-                        <div class="month-header">outubro</div>
-                        <div class="month-header">novembro</div>
-                        <div class="month-header">dezembro</div>
-                    </div>
-                </div>
-                <div id="timelineContent"></div>
-            </div>
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color ferias" style="background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%);"></div>
-                    <span>Férias</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color folga" style="background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);"></div>
-                    <span>Folga Eleitoral / Folga</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color ausencia" style="background: linear-gradient(135deg, #5E35B1 0%, #4527A0 100%);"></div>
-                    <span>Ausência Abonada</span>
-                </div>
-            </div>
-        </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Painel Gestão de Férias - CONTERC
+  </title>
+  <style>
+   *{margin:0;padding:0;box-sizing:border-box} :root{--name-col:300px;--brand:#8b1538;--brand2:#a31e3c;--line:#e8e8e8}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f1f1f1;color:#2d2d2d}.header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px #0003}.header-left{display:flex;align-items:center;gap:18px}.logo{background:#fff;width:50px;height:50px;border-radius:8px;display:grid;place-items:center;font-weight:800;color:var(--brand)}.gestao-ferias{font-size:20px;font-weight:650;letter-spacing:.4px}.user-icon{background:#ffffff2e;width:40px;height:40px;border-radius:50%;display:grid;place-items:center}.container{padding:20px 30px;max-width:1700px;margin:auto}.filters-section,.colaboradores-card,.chart-card,.tabs,.gantt-section{background:#fff;border-radius:8px;box-shadow:0 2px 4px #00000014}.filters-section{padding:20px;margin-bottom:20px}.filters-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}.filter-group{display:flex;flex-direction:column;gap:5px}.filter-label{font-size:13px;font-weight:600;color:var(--brand)}.filter-select{padding:10px;border:1px solid #ddd;border-radius:4px;background:#fff;font-size:14px}.filter-select:focus{outline:2px solid #8b153833;border-color:var(--brand)}.stats-section{display:grid;grid-template-columns:250px 1fr;gap:20px;margin-bottom:20px}.colaboradores-card{padding:20px;text-align:center}.colaboradores-number{font-size:48px;font-weight:700;color:var(--brand);margin:10px}.colaboradores-label{font-size:14px;color:#666;font-weight:600}.chart-card{padding:20px}.chart-title{font-size:16px;font-weight:650;margin-bottom:15px}.chart-bars{height:150px;display:flex;align-items:flex-end;justify-content:space-around;gap:10px;padding:10px 0}.bar-container{height:100%;display:flex;flex:1;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}.bar-value{background:var(--brand);color:#fff;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:650}.bar{width:100%;max-width:42px;min-height:3px;background:linear-gradient(var(--brand2),var(--brand));border-radius:4px 4px 0 0}.bar-label{font-size:12px;color:#666}.tabs{display:flex;overflow:hidden;margin-bottom:20px}.tab{flex:1;padding:15px;text-align:center;background:#f5f5f5;color:#666;font-weight:600;cursor:pointer;border-right:1px solid #ddd}.tab:last-child{border:0}.tab.active{background:var(--brand);color:#fff}.gantt-section{padding:20px}.gantt-header-controls{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:2px solid #f0f0f0}.gantt-header-controls h3{color:var(--brand)}.expand-btn{border:0;background:#f4f4f4;padding:9px 15px;border-radius:4px;color:#555;cursor:pointer}.timeline-container{overflow-x:auto;margin-top:20px}.timeline-inner{min-width:950px}.timeline-header,.timeline-row{display:flex}.timeline-header{border-bottom:2px solid #ddd;padding-bottom:8px;position:sticky;top:0;background:#fff;z-index:10}.name-column,.employee-cell{width:var(--name-col);min-width:var(--name-col);padding:10px}.name-column{font-weight:650;color:var(--brand)}.months-grid,.timeline-grid{display:grid;grid-template-columns:repeat(12,minmax(52px,1fr));flex:1;min-width:624px}.month-header{text-align:center;padding:10px 3px;font-size:12px;font-weight:650;color:#666;border-right:1px solid var(--line)}.group-header{background:#f8f8f8;padding:12px 10px;margin:10px 0;border-left:4px solid var(--brand);font-weight:650;color:var(--brand);cursor:pointer;display:flex;gap:10px;align-items:center}.expand-icon{font-size:12px;transition:.2s}.expand-icon.expanded{transform:rotate(90deg)}.timeline-row{border-bottom:1px solid #eee;min-height:90px;align-items:stretch}.timeline-row:hover{background:#fafafa}.employee-cell{font-size:13px}.employee-name{font-weight:600}.employee-id{font-size:11px;color:#999;margin-top:3px}.timeline-grid{position:relative;background-image:linear-gradient(to right,transparent calc(100% - 1px),var(--line) calc(100% - 1px));background-size:calc(100% / 12) 100%;overflow:hidden}.month-cell{min-height:90px;border-right:1px solid var(--line);pointer-events:none}.vacation-bar{position:absolute;height:20px;border-radius:4px;z-index:2;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:700;white-space:nowrap;padding:0 5px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px #0003;cursor:pointer;min-width:3px;transition:filter .15s,transform .15s}.vacation-bar:hover{filter:brightness(.88);transform:translateY(-1px);z-index:5;overflow:visible;min-width:max-content}.vacation-bar.ferias{background:linear-gradient(135deg,#d32f2f,#c62828)}.vacation-bar.folga{background:linear-gradient(135deg,#ff9800,#f57c00)}.vacation-bar.ausencia{background:linear-gradient(135deg,#5e35b1,#4527a0)}.vacation-bar.outros{background:linear-gradient(135deg,#607d8b,#455a64)}.vacation-bar.muito-curta{padding:0;min-width:4px}.tooltip{position:fixed;display:none;background:#111e;color:#fff;padding:10px 14px;border-radius:6px;font-size:12px;pointer-events:none;z-index:9999;box-shadow:0 4px 12px #0005}.legend{display:flex;flex-wrap:wrap;gap:20px;padding:15px;background:#f8f8f8;border-radius:6px;margin-top:20px}.legend-item{display:flex;align-items:center;gap:8px;font-size:12px}.legend-color{width:30px;height:16px;border-radius:8px}.empty{padding:20px;color:#666;text-align:center}
+@media(max-width:1200px){.stats-section{grid-template-columns:1fr}}@media(max-width:900px){:root{--name-col:220px}.container{padding:15px}.timeline-inner{min-width:1050px}}
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="header-left">
+    <div class="logo">
+     BNB
     </div>
-
-    <div class="tooltip" id="tooltip"></div>
-
-    <script>
-        let dadosFerias = []; // Iniciado vazio, será carregado via Fetch
-        const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-        let currentTab = 'programadas';
-        let expandedGroups = {};
-
-        const MS_PER_DAY = 24 * 60 * 60 * 1000;
-        const PROXIMITY_GAP_DAYS = 2;
-
-        function parseISODateLocal(iso) {
-            if (!iso || typeof iso !== 'string') return null;
-            const parts = iso.split('-').map(Number);
-            if (parts.length !== 3 || parts.some(n => Number.isNaN(n))) return null;
-            const [y, m, d] = parts;
-            return new Date(y, m - 1, d, 12, 0, 0, 0);
-        }
-
-        function toUTCDateNumber(dateObj) {
-            return Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
-        }
-
-        function diffDays(a, b) {
-            return Math.round((toUTCDateNumber(b) - toUTCDateNumber(a)) / MS_PER_DAY);
-        }
-
-        function getSelectedYear() {
-            const el = document.getElementById('anoFilter');
-            const year = Number(el?.value);
-            return Number.isFinite(year) ? year : new Date().getFullYear();
-        }
-
-        function getYearRange(year) {
-            const start = new Date(year, 0, 1, 12, 0, 0, 0);
-            const end = new Date(year, 11, 31, 12, 0, 0, 0);
-            return { start, end, totalDays: diffDays(start, end) + 1 };
-        }
-
-        function isManagerCargo(cargo) {
-            return (cargo || '').toUpperCase().includes('GERENTE');
-        }
-
-        function normalizeStatus(status) {
-            return (status || '').toString().trim().toLowerCase();
-        }
-
-        function normalizeTipo(tipo) {
-            const raw = (tipo || '').toString().trim().toUpperCase();
-            const noAccents = raw.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            if (noAccents.includes('FERIA') || noAccents === 'FER') return 'ferias';
-            if (noAccents.includes('FOLGA') || noAccents === 'FEL' || noAccents === 'FOL') return 'folga';
-            if (noAccents.includes('AUSENCIA') || noAccents === 'ABO' || noAccents === 'AUS') return 'ausencia';
-            return 'outros';
-        }
-
-        function passesTabFilter(item) {
-            const s = normalizeStatus(item.status);
-            if (currentTab === 'programadas') {
-                return !s || s.includes('definir') || s.includes('program') || s.includes('planej');
-            }
-            if (currentTab === 'realizadas') {
-                if (s.includes('realiz') || s.includes('conclu') || s.includes('execut')) return true;
-                const end = parseISODateLocal(item.data_fim) || parseISODateLocal(item.data_inicio);
-                if (!end) return false;
-                const today = new Date();
-                const todayMid = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-                return end < todayMid;
-            }
-            return true;
-        }
-
-        function getActiveFilters() {
-            return {
-                centro: document.getElementById('centroFilter')?.value || '',
-                funcao: document.getElementById('funcaoFilter')?.value || '',
-                ano: getSelectedYear(),
-                mes: document.getElementById('mesFilter')?.value || '',
-                gestor: document.getElementById('gestorFilter')?.value || '',
-                funcionario: document.getElementById('funcionarioFilter')?.value || ''
-            };
-        }
-
-        function getFilteredEvents() {
-            const f = getActiveFilters();
-            const yr = getYearRange(f.ano);
-            const mesNum = f.mes ? Number(f.mes) : null;
-
-            return dadosFerias.filter(item => {
-                if (!passesTabFilter(item)) return false;
-                if (f.centro && item.Célula !== f.centro) return false;
-                if (f.funcao && item.cargo !== f.funcao) return false;
-                if (f.funcionario && item.Nome !== f.funcionario) return false;
-                if (f.gestor === 'sim' && !isManagerCargo(item.cargo)) return false;
-
-                const start0 = parseISODateLocal(item.Início);
-                const end0 = parseISODateLocal(item.Fim) || start0;
-
-                if (mesNum !== null) {
-                    if (!start0) return false;
-                    if ((start0.getMonth() + 1) !== mesNum) return false;
-                }
-
-                if (start0 && end0) {
-                    const start = end0 < start0 ? end0 : start0;
-                    const end = end0 < start0 ? start0 : end0;
-                    if (end < yr.start || start > yr.end) return false;
-                } else {
-                    if (mesNum !== null) return false;
-                }
-                return true;
-            });
-        }
-
-        function safeId(str) {
-            return (str || '').toString().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
-        }
-
-        function refreshAll() {
-            updateStats();
-            createChart();
-            createTimeline();
-        }
-
-        // Função assíncrona para buscar os dados de dados.json
-        async function carregarDados() {
-            try {
-                const response = await fetch('./dados.json');
-                if (!response.ok) throw new Error('Não foi possível carregar o dados.json');
-                dadosFerias = await response.json();
-                
-                // Tratar dados para retrocompatibilidade com o algoritmo original
-                dadosFerias.forEach(d => {
-                    d.colaborador = d.Nome;
-                    d.matricula = d.Matrícula;
-                    d.cargo = d.cargo || (d.Núcleo === 'GESTÃO' ? 'GERENTE DE CÉLULA' : 'FUNCIONÁRIO');
-                    d.hierarquia = d.Núcleo || 'FUNCIONÁRIO(A)';
-                    d.local = d.Célula;
-                    d.data_inicio = d.Início;
-                    d.data_fim = d.Fim;
-                    d.tipo = d.Tipo;
-                    d.status = d.status || 'A Definir';
-                });
-
-                init();
-            } catch (err) {
-                console.error("Erro ao carregar os dados:", err);
-                document.getElementById('timelineContent').innerHTML = '<div style="color:red; padding:20px;">Erro ao carregar o arquivo dados.json. Certifique-se de que ele foi enviado ao GitHub Pages.</div>';
-            }
-        }
-
-        function init() {
-            populateFilters();
-            refreshAll();
-            setupEventListeners();
-        }
-
-        function populateFilters() {
-            const centros = [...new Set(dadosFerias.map(d => d.local).filter(Boolean))].sort();
-            const centroFilter = document.getElementById('centroFilter');
-            while (centroFilter.options.length > 1) centroFilter.remove(1);
-            centros.forEach(centro => {
-                const option = document.createElement('option');
-                option.value = centro;
-                option.textContent = centro;
-                centroFilter.appendChild(option);
-            });
-
-            const cargos = [...new Set(dadosFerias.map(d => d.cargo).filter(Boolean))].sort();
-            const funcaoFilter = document.getElementById('funcaoFilter');
-            while (funcaoFilter.options.length > 1) funcaoFilter.remove(1);
-            cargos.forEach(cargo => {
-                const option = document.createElement('option');
-                option.value = cargo;
-                option.textContent = cargo;
-                funcaoFilter.appendChild(option);
-            });
-
-            const anoFilter = document.getElementById('anoFilter');
-            const currentSelected = Number(anoFilter.value) || null;
-            const years = [...new Set(dadosFerias.flatMap(d => [d.data_inicio, d.data_fim]).filter(Boolean).map(s => Number(String(s).slice(0, 4))).filter(y => Number.isFinite(y)))].sort((a, b) => a - b);
-            const yearsToUse = years.length ? years : [new Date().getFullYear()];
-            anoFilter.innerHTML = '';
-            yearsToUse.forEach(y => {
-                const opt = document.createElement('option');
-                opt.value = String(y);
-                opt.textContent = String(y);
-                anoFilter.appendChild(opt);
-            });
-            if (currentSelected && yearsToUse.includes(currentSelected)) {
-                anoFilter.value = String(currentSelected);
-            } else {
-                anoFilter.value = String(Math.max(...yearsToUse));
-            }
-
-            const mesFilter = document.getElementById('mesFilter');
-            while (mesFilter.options.length > 1) mesFilter.remove(1);
-            meses.forEach((mes, idx) => {
-                const option = document.createElement('option');
-                option.value = idx + 1;
-                option.textContent = mes.charAt(0).toUpperCase() + mes.slice(1);
-                mesFilter.appendChild(option);
-            });
-
-            const colaboradores = [...new Set(dadosFerias.map(d => d.colaborador).filter(Boolean))].sort();
-            const funcionarioFilter = document.getElementById('funcionarioFilter');
-            while (funcionarioFilter.options.length > 1) funcionarioFilter.remove(1);
-            colaboradores.forEach(colab => {
-                const option = document.createElement('option');
-                option.value = colab;
-                option.textContent = colab;
-                funcionarioFilter.appendChild(option);
-            });
-        }
-
-        function updateStats() {
-            const filteredEvents = getFilteredEvents();
-            const uniqueColabs = new Set(filteredEvents.map(d => d.matricula));
-            document.getElementById('totalColaboradores').textContent = uniqueColabs.size;
-        }
-
-        function createChart() {
-            const f = getActiveFilters();
-            const yr = getYearRange(f.ano);
-            const monthSets = Array.from({ length: 12 }, () => new Set());
-            const filteredEvents = getFilteredEvents();
-
-            filteredEvents.forEach(item => {
-                if (item.tipo !== 'FER') return;
-                const start0 = parseISODateLocal(item.data_inicio);
-                if (!start0) return;
-                const end0 = parseISODateLocal(item.data_fim) || start0;
-                let start = start0;
-                let end = end0;
-                if (end < start) [start, end] = [end, start];
-                const clampedStart = start < yr.start ? yr.start : start;
-                const clampedEnd = end > yr.end ? yr.end : end;
-                if (clampedEnd < yr.start || clampedStart > yr.end || clampedEnd < clampedStart) return;
-                const startMonth = clampedStart.getMonth();
-                const endMonth = clampedEnd.getMonth();
-                for (let m = startMonth; m <= endMonth; m++) {
-                    monthSets[m].add(item.matricula);
-                }
-            });
-
-            const monthCounts = monthSets.map(s => s.size);
-            const chartContainer = document.getElementById('chartBars');
-            chartContainer.innerHTML = '';
-            const maxCount = Math.max(...monthCounts, 0);
-            const displayMonths = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-
-            displayMonths.forEach((monthLabel, monthIdx) => {
-                const count = monthCounts[monthIdx];
-                const barContainer = document.createElement('div');
-                barContainer.className = 'bar-container';
-                const value = document.createElement('div');
-                value.className = 'bar-value';
-                value.textContent = count;
-                const bar = document.createElement('div');
-                bar.className = 'bar';
-                const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
-                bar.style.height = `${Math.max(height, 5)}%`;
-                const label = document.createElement('div');
-                label.className = 'bar-label';
-                label.textContent = monthLabel;
-                barContainer.appendChild(value);
-                barContainer.appendChild(bar);
-                barContainer.appendChild(label);
-                chartContainer.appendChild(barContainer);
-            });
-        }
-
-        function createTimeline() {
-            const content = document.getElementById('timelineContent');
-            content.innerHTML = '';
-            const f = getActiveFilters();
-            const filteredEvents = getFilteredEvents();
-
-            const baseMap = {};
-            dadosFerias.forEach(item => {
-                if (!baseMap[item.matricula]) {
-                    baseMap[item.matricula] = {
-                        nome: item.colaborador,
-                        matricula: item.matricula,
-                        cargo: item.cargo,
-                        local: item.local,
-                        hierarquia: item.hierarquia,
-                        ordem: item.ordem || 99,
-                        feriasFiltradas: []
-                    };
-                }
-            });
-
-            filteredEvents.forEach(item => {
-                if (!baseMap[item.matricula]) return;
-                baseMap[item.matricula].feriasFiltradas.push(item);
-            });
-
-            let colaboradoresVisiveis = Object.values(baseMap).filter(c => c.feriasFiltradas.length > 0);
-            colaboradoresVisiveis.sort((a, b) => {
-                const oa = a.ordem;
-                const ob = b.ordem;
-                if (oa !== ob) return oa - ob;
-                return (a.nome || '').localeCompare(b.nome || '');
-            });
-
-            const includeManagersEmpty = !f.funcionario && !f.funcao && !f.mes && f.gestor !== 'sim';
-            const gerenteAmbiente = Object.values(baseMap).find(c => (c.cargo || '').toUpperCase() === 'GERENTE DE AMBIENTE');
-
-            if (gerenteAmbiente && (gerenteAmbiente.feriasFiltradas.length > 0 || includeManagersEmpty)) {
-                const groupId = 'gerente_ambiente';
-                const groupHeader = document.createElement('div');
-                groupHeader.className = 'group-header';
-                groupHeader.dataset.groupId = groupId;
-                groupHeader.innerHTML = `<span class="expand-icon ${expandedGroups[groupId] !== false ? 'expanded' : ''}">▶</span> GERENTE DE AMBIENTE - ${gerenteAmbiente.local || ''}`;
-                groupHeader.addEventListener('click', (e) => toggleGroup(e, groupId));
-                content.appendChild(groupHeader);
-
-                const groupContent = document.createElement('div');
-                groupContent.id = `group-${groupId}`;
-                groupContent.className = 'group-content';
-                groupContent.dataset.groupId = groupId;
-                groupContent.style.display = expandedGroups[groupId] !== false ? 'block' : 'none';
-                createEmployeeRow(gerenteAmbiente, groupContent, 1, gerenteAmbiente.feriasFiltradas);
-                content.appendChild(groupContent);
-            }
-
-            const colabsSemGA = colaboradoresVisiveis.filter(c => (c.cargo || '').toUpperCase() !== 'GERENTE DE AMBIENTE');
-            const locals = [...new Set(colabsSemGA.map(c => c.local).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-
-            locals.forEach(local => {
-                const groupMembers = colabsSemGA.filter(c => c.local === local);
-                if (!groupMembers.length) return;
-
-                const gerenteCelulaBase = Object.values(baseMap).find(c => c.local === local && (c.cargo || '').toUpperCase() === 'GERENTE DE CÉLULA');
-                const gerenteTemEventoNoFiltro = gerenteCelulaBase ? gerenteCelulaBase.feriasFiltradas.length > 0 : false;
-                const showGerente = !!gerenteCelulaBase && (gerenteTemEventoNoFiltro || includeManagersEmpty);
-                const groupId = `local_${safeId(local)}`;
-
-                const groupHeader = document.createElement('div');
-                groupHeader.className = 'group-header';
-                groupHeader.dataset.groupId = groupId;
-                const headerLabel = showGerente ? `GERENTE DE CÉLULA - ${local}` : `EQUIPE - ${local}`;
-                groupHeader.innerHTML = `<span class="expand-icon ${expandedGroups[groupId] !== false ? 'expanded' : ''}">▶</span> ${headerLabel}`;
-                groupHeader.addEventListener('click', (e) => toggleGroup(e, groupId));
-                content.appendChild(groupHeader);
-
-                const groupContent = document.createElement('div');
-                groupContent.id = `group-${groupId}`;
-                groupContent.className = 'group-content';
-                groupContent.dataset.groupId = groupId;
-                groupContent.style.display = expandedGroups[groupId] !== false ? 'block' : 'none';
-
-                if (showGerente) {
-                    createEmployeeRow(gerenteCelulaBase, groupContent, 1, gerenteCelulaBase.feriasFiltradas);
-                }
-
-                groupMembers
-                    .filter(c => !showGerente || c.matricula !== gerenteCelulaBase.matricula)
-                    .forEach(sub => {
-                        createEmployeeRow(sub, groupContent, showGerente ? 2 : 1, sub.feriasFiltradas);
-                    });
-                content.appendChild(groupContent);
-            });
-
-            if (!content.children.length) {
-                const empty = document.createElement('div');
-                empty.style.padding = '14px';
-                empty.style.color = '#666';
-                empty.textContent = 'Nenhum registro encontrado com os filtros atuais.';
-                content.appendChild(empty);
-            }
-        }
-
-        function createEmployeeRow(colab, container, level = 1, feriasList = []) {
-            const row = document.createElement('div');
-            row.className = 'timeline-row';
-            const employeeCell = document.createElement('div');
-            employeeCell.className = 'employee-cell';
-            employeeCell.style.paddingLeft = `${Math.max(level - 1, 0) * 12}px`;
-
-            const nameDiv = document.createElement('div');
-            nameDiv.className = 'employee-name';
-            nameDiv.textContent = colab.nome || '';
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'employee-id';
-            infoDiv.textContent = `${colab.matricula || ''} - ${colab.cargo || ''}`;
-            employeeCell.appendChild(nameDiv);
-            employeeCell.appendChild(infoDiv);
-            row.appendChild(employeeCell);
-
-            const timelineGrid = document.createElement('div');
-            timelineGrid.className = 'timeline-grid';
-            for (let i = 0; i < 12; i++) {
-                const monthCell = document.createElement('div');
-                monthCell.className = 'month-cell';
-                timelineGrid.appendChild(monthCell);
-            }
-
-            const feriasComDatas = (feriasList || []).filter(f => f.data_inicio);
-            const porTipo = {
-                ferias: feriasComDatas.filter(f => normalizeTipo(f.tipo) === 'ferias'),
-                folga: feriasComDatas.filter(f => normalizeTipo(f.tipo) === 'folga'),
-                ausencia: feriasComDatas.filter(f => normalizeTipo(f.tipo) === 'ausencia'),
-                outros: feriasComDatas.filter(f => normalizeTipo(f.tipo) === 'outros')
-            };
-
-            const trilhasPorTipo = {
-                ferias: organizarEmTrilhas(porTipo.ferias),
-                folga: organizarEmTrilhas(porTipo.folga),
-                ausencia: organizarEmTrilhas(porTipo.ausencia),
-                outros: organizarEmTrilhas(porTipo.outros)
-            };
-
-            const maxTrilhasFerias = Math.max(trilhasPorTipo.ferias.length, 1);
-            const maxTrilhasFolga = Math.max(trilhasPorTipo.folga.length, 1);
-            const maxTrilhasAusencia = Math.max(trilhasPorTipo.ausencia.length + trilhasPorTipo.outros.length, 1);
-            const alturaBase = 24;
-            const alturaTotal = (maxTrilhasFerias + maxTrilhasFolga + maxTrilhasAusencia) * alturaBase + 15;
-
-            if (alturaTotal > 90) {
-                row.style.minHeight = `${alturaTotal}px`;
-                timelineGrid.querySelectorAll('.month-cell').forEach(cell => {
-                    cell.style.minHeight = `${alturaTotal}px`;
-                });
-            }
-
-            const offsetFerias = 8;
-            const offsetFolga = offsetFerias + (maxTrilhasFerias * alturaBase);
-            const offsetAusencia = offsetFolga + (maxTrilhasFolga * alturaBase);
-
-            trilhasPorTipo.ferias.forEach((trilha, subIndex) => {
-                trilha.forEach(ferias => {
-                    const bar = createVacationBar(ferias, offsetFerias + (subIndex * alturaBase));
-                    if (bar) timelineGrid.appendChild(bar);
-                });
-            });
-
-            trilhasPorTipo.folga.forEach((trilha, subIndex) => {
-                trilha.forEach(ferias => {
-                    const bar = createVacationBar(ferias, offsetFolga + (subIndex * alturaBase));
-                    if (bar) timelineGrid.appendChild(bar);
-                });
-            });
-
-            trilhasPorTipo.ausencia.forEach((trilha, subIndex) => {
-                trilha.forEach(ferias => {
-                    const bar = createVacationBar(ferias, offsetAusencia + (subIndex * alturaBase));
-                    if (bar) timelineGrid.appendChild(bar);
-                });
-            });
-
-            trilhasPorTipo.outros.forEach((trilha, subIndex) => {
-                const offsetOutros = offsetAusencia + (trilhasPorTipo.ausencia.length * alturaBase);
-                trilha.forEach(ferias => {
-                    const bar = createVacationBar(ferias, offsetOutros + (subIndex * alturaBase));
-                    if (bar) timelineGrid.appendChild(bar);
-                });
-            });
-
-            row.appendChild(timelineGrid);
-            container.appendChild(row);
-        }
-
-        function organizarEmTrilhas(feriasArray) {
-            const trilhas = [];
-            const sorted = [...(feriasArray || [])].sort((a, b) => {
-                const da = parseISODateLocal(a.data_inicio);
-                const db = parseISODateLocal(b.data_inicio);
-                if (!da && !db) return 0;
-                if (!da) return 1;
-                if (!db) return -1;
-                return da - db;
-            });
-
-            sorted.forEach(ferias => {
-                let adicionada = false;
-                for (const trilha of trilhas) {
-                    if (!temProximidade(trilha, ferias)) {
-                        trilha.push(ferias);
-                        adicionada = true;
-                        break;
-                    }
-                }
-                if (!adicionada) {
-                    trilhas.push([ferias]);
-                }
-            });
-            return trilhas;
-        }
-
-        function temProximidade(trilhaFerias, novaFerias) {
-            const novoInicio0 = parseISODateLocal(novaFerias.data_inicio);
-            const novoFim0 = parseISODateLocal(novaFerias.data_fim) || novoInicio0;
-            if (!novoInicio0 || !novoFim0) return false;
-            let novoInicio = novoInicio0;
-            let novoFim = novoFim0;
-            if (novoFim < novoInicio) [novoInicio, novoFim] = [novoFim, novoInicio];
-
-            return (trilhaFerias || []).some(ferias => {
-                const inicio0 = parseISODateLocal(ferias.data_inicio);
-                const fim0 = parseISODateLocal(ferias.data_fim) || inicio0;
-                if (!inicio0 || !fim0) return false;
-                let inicio = inicio0;
-                let fim = fim0;
-                if (fim < inicio) [inicio, fim] = [fim, inicio];
-                if (!(novoFim < inicio || novoInicio > fim)) return true;
-                if (fim < novoInicio) return diffDays(fim, novoInicio) <= PROXIMITY_GAP_DAYS;
-                if (novoFim < inicio) return diffDays(novoFim, inicio) <= PROXIMITY_GAP_DAYS;
-                return false;
-            });
-        }
-
-        function createVacationBar(ferias, topOffset = 8) {
-            const year = getSelectedYear();
-            const yr = getYearRange(year);
-            let startDate = parseISODateLocal(ferias.data_inicio);
-            if (!startDate) return null;
-            let endDate = parseISODateLocal(ferias.data_fim) || startDate;
-            if (endDate < startDate) [startDate, endDate] = [endDate, startDate];
-            if (endDate < yr.start || startDate > yr.end) return null;
-            const clampedStart = startDate < yr.start ? yr.start : startDate;
-            const clampedEnd = endDate > yr.end ? yr.end : endDate;
-            const durationDays = diffDays(startDate, endDate) + 1;
-            const left = (diffDays(yr.start, clampedStart) / yr.totalDays) * 100;
-
-            const bar = document.createElement('div');
-            const tipoClass = normalizeTipo(ferias.tipo);
-            bar.className = `vacation-bar ${tipoClass}`;
-
-            if (left > 85) {
-                const right = 100 - left;
-                bar.style.right = `${right}%`;
-                bar.style.left = 'auto';
-            } else {
-                bar.style.left = `${left}%`;
-            }
-            bar.style.top = `${topOffset}px`;
-
-            const formatShort = (d) => {
-                const dd = String(d.getDate()).padStart(2, '0');
-                const mm = String(d.getMonth() + 1).padStart(2, '0');
-                return `${dd}/${mm}`;
-            };
-
-            if (durationDays <= 2) {
-                bar.classList.add('compact');
-                bar.textContent = formatShort(startDate);
-                bar.style.fontSize = '8px';
-            } else {
-                bar.textContent = `${formatShort(startDate)} - ${formatShort(endDate)}`;
-                if (durationDays <= 5) bar.style.fontSize = '8px';
-            }
-
-            bar.addEventListener('mouseenter', (e) => showTooltip(e, ferias, durationDays, startDate, endDate));
-            bar.addEventListener('mouseleave', hideTooltip);
-            return bar;
-        }
-
-        function showTooltip(event, ferias, durationDays, startDate, endDate) {
-            let tooltip = document.getElementById('tooltip');
-            if (!tooltip) {
-                tooltip = document.createElement('div');
-                tooltip.id = 'tooltip';
-                tooltip.className = 'tooltip';
-                document.body.appendChild(tooltip);
-            }
-            const formatDate = (d) => {
-                if (!d) return '-';
-                const dd = String(d.getDate()).padStart(2, '0');
-                const mm = String(d.getMonth() + 1).padStart(2, '0');
-                const yy = d.getFullYear();
-                return `${dd}/${mm}/${yy}`;
-            };
-
-            tooltip.innerHTML = `
-                <strong>${ferias.tipo || ''}</strong><br>
-                <strong>Início:</strong> ${formatDate(startDate)}<br>
-                <strong>Fim:</strong> ${formatDate(endDate)}<br>
-                <strong>Dias:</strong> ${durationDays || '-'}<br>
-                <strong>Status:</strong> ${ferias.status || '-'}
-            `;
-            tooltip.style.display = 'block';
-            const padding = 12;
-            const rect = tooltip.getBoundingClientRect();
-            let left = event.pageX + 15;
-            let top = event.pageY + 15;
-
-            if (left + rect.width > window.pageXOffset + window.innerWidth - padding) {
-                left = event.pageX - rect.width - 15;
-            }
-            if (top + rect.height > window.pageYOffset + window.innerHeight - padding) {
-                top = event.pageY - rect.height - 15;
-            }
-            tooltip.style.left = `${left}px`;
-            tooltip.style.top = `${top}px`;
-        }
-
-        function hideTooltip() {
-            const tooltip = document.getElementById('tooltip');
-            if (tooltip) tooltip.style.display = 'none';
-        }
-
-        function toggleGroup(event, groupId) {
-            const content = document.getElementById(`group-${groupId}`);
-            const icon = event.currentTarget.querySelector('.expand-icon');
-            if (!content) return;
-            const isCurrentlyExpanded = content.style.display !== 'none';
-
-            if (isCurrentlyExpanded) {
-                content.style.display = 'none';
-                if (icon) icon.classList.remove('expanded');
-                expandedGroups[groupId] = false;
-            } else {
-                content.style.display = 'block';
-                if (icon) icon.classList.add('expanded');
-                expandedGroups[groupId] = true;
-            }
-        }
-
-        function toggleAll() {
-            const groupContents = document.querySelectorAll('.group-content');
-            if (!groupContents.length) return;
-            const allExpanded = Array.from(groupContents).every(gc => gc.style.display !== 'none');
-
-            groupContents.forEach(gc => {
-                const groupId = gc.dataset.groupId || gc.id.replace('group-', '');
-                const header = document.querySelector(`.group-header[data-group-id="${groupId}"]`);
-                const icon = header ? header.querySelector('.expand-icon') : null;
-
-                if (allExpanded) {
-                    gc.style.display = 'none';
-                    if (icon) icon.classList.remove('expanded');
-                    expandedGroups[groupId] = false;
-                } else {
-                    gc.style.display = 'block';
-                    if (icon) icon.classList.add('expanded');
-                    expandedGroups[groupId] = true;
-                }
-            });
-            const toggleAllBtn = document.getElementById('toggleAllBtn');
-            if (toggleAllBtn) toggleAllBtn.textContent = allExpanded ? '▼ Expandir Tudo' : '▲ Recolher Tudo';
-        }
-
-        function setupEventListeners() {
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    currentTab = tab.dataset.tab;
-                    refreshAll();
-                });
-            });
-
-            ['centroFilter', 'funcaoFilter', 'anoFilter', 'mesFilter', 'gestorFilter', 'funcionarioFilter'].forEach(filterId => {
-                const el = document.getElementById(filterId);
-                if (!el) return;
-                el.addEventListener('change', () => {
-                    refreshAll();
-                });
-            });
-
-            document.addEventListener('scroll', hideTooltip, { passive: true });
-        }
-
-        // Iniciar carregamento dos dados
-        carregarDados();
-    </script>
-</body>
+    <div class="gestao-ferias">
+     GESTÃO DE FÉRIAS - CONTERC
+    </div>
+   </div>
+   <div class="user-icon">
+    👤
+   </div>
+  </header>
+  <main class="container">
+   <section class="filters-section">
+    <div class="filters-grid">
+     <div class="filter-group">
+      <label class="filter-label" for="centroFilter">
+       Centro de Custo
+      </label>
+      <select class="filter-select" id="centroFilter">
+       <option value="">
+        Todos
+       </option>
+      </select>
+     </div>
+     <div class="filter-group">
+      <label class="filter-label" for="funcaoFilter">
+       Função
+      </label>
+      <select class="filter-select" id="funcaoFilter">
+       <option value="">
+        Todos
+       </option>
+      </select>
+     </div>
+     <div class="filter-group">
+      <label class="filter-label" for="anoFilter">
+       Ano
+      </label>
+      <select class="filter-select" id="anoFilter">
+      </select>
+     </div>
+     <div class="filter-group">
+      <label class="filter-label" for="mesFilter">
+       Mês Inicial
+      </label>
+      <select class="filter-select" id="mesFilter">
+       <option value="">
+        Todos
+       </option>
+      </select>
+     </div>
+     <div class="filter-group">
+      <label class="filter-label" for="gestorFilter">
+       É Gestor?
+      </label>
+      <select class="filter-select" id="gestorFilter">
+       <option value="">
+        Todos
+       </option>
+       <option value="sim">
+        Sim
+       </option>
+       <option value="nao">
+        Não
+       </option>
+      </select>
+     </div>
+     <div class="filter-group">
+      <label class="filter-label" for="funcionarioFilter">
+       Funcionário
+      </label>
+      <select class="filter-select" id="funcionarioFilter">
+       <option value="">
+        Todos
+       </option>
+      </select>
+     </div>
+    </div>
+   </section>
+   <section class="stats-section">
+    <div class="colaboradores-card">
+     <div class="colaboradores-label">
+      Colaboradores com Eventos
+     </div>
+     <div class="colaboradores-number" id="totalColaboradores">
+      0
+     </div>
+    </div>
+    <div class="chart-card">
+     <div class="chart-title">
+      Qtd. de Funcionários de Férias por Mês
+     </div>
+     <div class="chart-bars" id="chartBars">
+     </div>
+    </div>
+   </section>
+   <div class="tabs">
+    <div class="tab active" data-tab="programadas">
+     Programadas
+    </div>
+    <div class="tab" data-tab="realizadas">
+     Realizadas
+    </div>
+   </div>
+   <section class="gantt-section">
+    <div class="gantt-header-controls">
+     <h3>
+      Detalhamento Férias
+     </h3>
+     <button class="expand-btn" id="toggleAllBtn">
+      ▼ Expandir Tudo
+     </button>
+    </div>
+    <div class="timeline-container">
+     <div class="timeline-inner">
+      <div class="timeline-header">
+       <div class="name-column">
+        Colaborador
+       </div>
+       <div class="months-grid" id="monthsHeader">
+       </div>
+      </div>
+      <div id="timelineContent">
+      </div>
+     </div>
+    </div>
+    <div class="legend">
+     <div class="legend-item">
+      <div class="legend-color" style="background:#d32f2f">
+      </div>
+      Férias
+     </div>
+     <div class="legend-item">
+      <div class="legend-color" style="background:#ff9800">
+      </div>
+      Folga
+     </div>
+     <div class="legend-item">
+      <div class="legend-color" style="background:#5e35b1">
+      </div>
+      Ausência Abonada
+     </div>
+     <div class="legend-item">
+      <div class="legend-color" style="background:#607d8b">
+      </div>
+      Outros
+     </div>
+    </div>
+   </section>
+  </main>
+  <div class="tooltip" id="tooltip">
+  </div>
+  <script>
+   'use strict';
+let dadosFerias=[];let currentTab='programadas';const expandedGroups={};
+const meses=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const MS_DAY=86400000,TRACK_H=24,GAP_DAYS=2;
+const $=id=>document.getElementById(id);
+function text(v){return String(v??'').trim()}
+function norm(v){return text(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase()}
+function parseDate(value) {
+    if (!value) return null;
+
+    if (value instanceof Date && !Number.isNaN(value.getTime())) {
+        return new Date(
+            value.getFullYear(),
+            value.getMonth(),
+            value.getDate(),
+            12, 0, 0, 0
+        );
+    }
+
+    const raw = text(value);
+    let year;
+    let month;
+    let day;
+
+    const isoMatch = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+    const brMatch = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+
+    if (isoMatch) {
+        year = Number(isoMatch[1]);
+        month = Number(isoMatch[2]);
+        day = Number(isoMatch[3]);
+    } else if (brMatch) {
+        day = Number(brMatch[1]);
+        month = Number(brMatch[2]);
+        year = Number(brMatch[3]);
+    } else {
+        return null;
+    }
+
+    const parsed = new Date(year, month - 1, day, 12, 0, 0, 0);
+    const isValid =
+        parsed.getFullYear() === year &&
+        parsed.getMonth() === month - 1 &&
+        parsed.getDate() === day;
+
+    return isValid ? parsed : null;
+}
+
+function dayNumber(d){return Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/MS_DAY}
+function daysBetween(a,b){return Math.round(dayNumber(b)-dayNumber(a))}
+function yearRange(y){const start=new Date(y,0,1,12),endExclusive=new Date(y+1,0,1,12);return{start,endExclusive,totalDays:daysBetween(start,endExclusive)}}
+function tipo(v){const n=norm(v);if(n.includes('FERIA')||n==='FER')return'ferias';if(n.includes('FOLGA')||['FEL','FOL'].includes(n))return'folga';if(n.includes('AUSENCIA')||n.includes('ABONAD')||['ABO','AUS'].includes(n))return'ausencia';return'outros'}
+function isManager(c){const n=norm(c);return ['GERENTE','GESTOR','COORDENADOR','SUPERINTENDENTE'].some(x=>n.includes(x))}
+function normalizeRecord(d,i){const inicio=parseDate(d.Início??d.Inicio??d.data_inicio);const fim=parseDate(d.Fim??d.data_fim)??inicio;let a=inicio,b=fim;if(a&&b&&b<a)[a,b]=[b,a];return{...d,_id:i,colaborador:text(d.Nome??d.colaborador),matricula:text(d.Matrícula??d.Matricula??d.matricula),cargo:text(d.cargo??d.Cargo??(norm(d.Núcleo??d.Nucleo)==='GESTAO'?'GERENTE DE CÉLULA':'FUNCIONÁRIO')),hierarquia:text(d.Núcleo??d.Nucleo??d.hierarquia??'FUNCIONÁRIO(A)'),local:text(d.Célula??d.Celula??d.local),inicio:a,fim:b,tipoOriginal:text(d.Tipo??d.tipo),tipoClass:tipo(d.Tipo??d.tipo),status:text(d.status??d.Status??'A Definir'),ordem:Number(d.ordem??99)}}
+function statusRealizado(d){const s=norm(d.status);if(['REALIZ','CONCLU','EXECUT'].some(x=>s.includes(x)))return true;if(['CANCEL','INDEFER'].some(x=>s.includes(x)))return false;const hoje=new Date(),today=new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate(),12);return !!d.fim&&d.fim<today}
+function passesTab(d){return currentTab==='realizadas'?statusRealizado(d):!statusRealizado(d)}
+function filters(){return{centro:$('centroFilter').value,funcao:$('funcaoFilter').value,ano:+$('anoFilter').value,mes:+$('mesFilter').value||0,gestor:$('gestorFilter').value,funcionario:$('funcionarioFilter').value}}
+function filtered(){const f=filters(),yr=yearRange(f.ano);return dadosFerias.filter(d=>{if(!passesTab(d)||!d.inicio)return false;if(f.centro&&d.local!==f.centro)return false;if(f.funcao&&d.cargo!==f.funcao)return false;if(f.funcionario&&d.colaborador!==f.funcionario)return false;const g=isManager(d.cargo);if(f.gestor==='sim'&&!g)return false;if(f.gestor==='nao'&&g)return false;if(f.mes&&d.inicio.getMonth()+1!==f.mes)return false;return d.fim>=yr.start&&d.inicio<yr.endExclusive})}
+function optionize(id,values,label=x=>x){const el=$(id);while(el.options.length>1)el.remove(1);values.forEach(v=>el.add(new Option(label(v),v)))}
+function populate(){optionize('centroFilter',[...new Set(dadosFerias.map(x=>x.local).filter(Boolean))].sort());optionize('funcaoFilter',[...new Set(dadosFerias.map(x=>x.cargo).filter(Boolean))].sort());optionize('funcionarioFilter',[...new Set(dadosFerias.map(x=>x.colaborador).filter(Boolean))].sort());optionize('mesFilter',meses.map((_,i)=>i+1),v=>meses[v-1][0].toUpperCase()+meses[v-1].slice(1));const years=[...new Set(dadosFerias.flatMap(x=>[x.inicio?.getFullYear(),x.fim?.getFullYear()]).filter(Boolean))].sort();const now=new Date().getFullYear();$('anoFilter').innerHTML='';(years.length?years:[now]).forEach(y=>$('anoFilter').add(new Option(y,y)));$('anoFilter').value=years.includes(now)?now:Math.max(...(years.length?years:[now]))}
+function refresh(){updateStats();createChart();createTimeline()}
+function updateStats(){$('totalColaboradores').textContent=new Set(filtered().map(x=>x.matricula||x.colaborador)).size}
+function createChart(){const f=filters(),sets=Array.from({length:12},()=>new Set),yr=yearRange(f.ano);filtered().filter(x=>x.tipoClass==='ferias').forEach(d=>{const start=d.inicio<yr.start?yr.start:d.inicio,end=d.fim>=yr.endExclusive?new Date(f.ano,11,31,12):d.fim;for(let m=start.getMonth();m<=end.getMonth();m++)sets[m].add(d.matricula||d.colaborador)});const counts=sets.map(s=>s.size),max=Math.max(...counts,1),box=$('chartBars');box.innerHTML='';['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'].forEach((m,i)=>{const c=document.createElement('div');c.className='bar-container';c.innerHTML=`<div class="bar-value">${counts[i]}</div><div class="bar" style="height:${Math.max(2,counts[i]/max*100)}%"></div><div class="bar-label">${m}</div>`;box.append(c)})}
+function safeId(v){return norm(v).toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'')}
+function createTimeline(){const events=filtered(),content=$('timelineContent');content.innerHTML='';const people=new Map;events.forEach(d=>{const k=d.matricula||d.colaborador;if(!people.has(k))people.set(k,{nome:d.colaborador,matricula:d.matricula,cargo:d.cargo,local:d.local,ordem:d.ordem,eventos:[]});people.get(k).eventos.push(d)});const list=[...people.values()].sort((a,b)=>a.ordem-b.ordem||a.local.localeCompare(b.local)||a.nome.localeCompare(b.nome));const groups=new Map;list.forEach(p=>{const key=p.local||'SEM CÉLULA';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(p)});[...groups.keys()].sort().forEach(local=>{const id='local_'+safeId(local);const header=document.createElement('div');header.className='group-header';header.dataset.groupId=id;const open=expandedGroups[id]!==false;header.innerHTML=`<span class="expand-icon ${open?'expanded':''}">▶</span><span>${escapeHTML(groupLabel(groups.get(local),local))}</span>`;header.onclick=e=>toggleGroup(e,id);content.append(header);const gc=document.createElement('div');gc.id='group-'+id;gc.className='group-content';gc.dataset.groupId=id;gc.style.display=open?'block':'none';groups.get(local).sort((a,b)=>(isManager(b.cargo)-isManager(a.cargo))||a.nome.localeCompare(b.nome)).forEach(p=>createRow(p,gc));content.append(gc)});if(!content.children.length){const e=document.createElement('div');e.className='empty';e.textContent='Nenhum registro encontrado com os filtros atuais.';content.append(e)}}
+function groupLabel(arr,local){if(arr.some(x=>norm(x.cargo).includes('GERENTE DE AMBIENTE')))return`GERENTE DE AMBIENTE - ${local}`;if(arr.some(x=>norm(x.cargo).includes('GERENTE DE CELULA')))return`GERENTE DE CÉLULA - ${local}`;return`EQUIPE - ${local}`}
+function intervalsConflict(a,b){return !(a.fim.getTime()+GAP_DAYS*MS_DAY<b.inicio.getTime()||a.inicio.getTime()>b.fim.getTime()+GAP_DAYS*MS_DAY)}
+function tracks(items){const out=[];[...items].sort((a,b)=>a.inicio-b.inicio).forEach(ev=>{let lane=out.find(t=>t.every(x=>!intervalsConflict(x,ev)));if(!lane){lane=[];out.push(lane)}lane.push(ev)});return out}
+function createRow(p,parent){const row=document.createElement('div');row.className='timeline-row';const cell=document.createElement('div');cell.className='employee-cell';const n=document.createElement('div');n.className='employee-name';n.textContent=p.nome;const info=document.createElement('div');info.className='employee-id';info.textContent=[p.matricula,p.cargo].filter(Boolean).join(' - ');cell.append(n,info);row.append(cell);const grid=document.createElement('div');grid.className='timeline-grid';for(let i=0;i<12;i++){const c=document.createElement('div');c.className='month-cell';grid.append(c)}const order=['ferias','folga','ausencia','outros'];let laneOffset=0;order.forEach(k=>{const ts=tracks(p.eventos.filter(e=>e.tipoClass===k));ts.forEach((lane,idx)=>lane.forEach(ev=>{const b=createBar(ev,8+(laneOffset+idx)*TRACK_H);if(b)grid.append(b)}));laneOffset+=Math.max(ts.length,1)});const height=Math.max(90,15+laneOffset*TRACK_H);row.style.minHeight=height+'px';grid.querySelectorAll('.month-cell').forEach(x=>x.style.minHeight=height+'px');row.append(grid);parent.append(row)}
+function createBar(ev,top){const f=filters(),yr=yearRange(f.ano),start=ev.inicio<yr.start?yr.start:ev.inicio,endExclusiveRaw=new Date(ev.fim.getFullYear(),ev.fim.getMonth(),ev.fim.getDate()+1,12),endExclusive=endExclusiveRaw>yr.endExclusive?yr.endExclusive:endExclusiveRaw;if(endExclusive<=yr.start||start>=yr.endExclusive)return null;const left=daysBetween(yr.start,start)/yr.totalDays*100,width=daysBetween(start,endExclusive)/yr.totalDays*100,duration=daysBetween(ev.inicio,new Date(ev.fim.getFullYear(),ev.fim.getMonth(),ev.fim.getDate()+1,12));const b=document.createElement('div');b.className=`vacation-bar ${ev.tipoClass}${width<.5?' muito-curta':''}`;b.style.left=left+'%';b.style.width=width+'%';b.style.top=top+'px';b.title='';const label=`${fmt(ev.inicio)} - ${fmt(ev.fim)}`;b.textContent=width>=2.3?label:(width>=1?fmt(ev.inicio):'');b.onmouseenter=e=>showTip(e,ev,duration);b.onmousemove=moveTip;b.onmouseleave=hideTip;return b}
+function fmt(d){return`${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`}
+function full(d){return`${fmt(d)}/${d.getFullYear()}`}
+function showTip(e,ev,duration){const t=$('tooltip');t.innerHTML=`<strong>${escapeHTML(ev.tipoOriginal||'Evento')}</strong><br><strong>Início:</strong> ${full(ev.inicio)}<br><strong>Fim:</strong> ${full(ev.fim)}<br><strong>Dias:</strong> ${duration}<br><strong>Status:</strong> ${escapeHTML(ev.status||'-')}`;t.style.display='block';moveTip(e)}
+function moveTip(e){const t=$('tooltip'),pad=12,r=t.getBoundingClientRect();let x=e.clientX+15,y=e.clientY+15;if(x+r.width>innerWidth-pad)x=e.clientX-r.width-15;if(y+r.height>innerHeight-pad)y=e.clientY-r.height-15;t.style.left=x+'px';t.style.top=y+'px'}function hideTip(){$('tooltip').style.display='none'}
+function escapeHTML(v){return text(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toggleGroup(e,id){const c=$('group-'+id),icon=e.currentTarget.querySelector('.expand-icon'),open=c.style.display!=='none';c.style.display=open?'none':'block';icon.classList.toggle('expanded',!open);expandedGroups[id]=!open}
+function toggleAll(){const cs=[...document.querySelectorAll('.group-content')],all=cs.length&&cs.every(x=>x.style.display!=='none');cs.forEach(c=>{c.style.display=all?'none':'block';expandedGroups[c.dataset.groupId]=!all;document.querySelector(`.group-header[data-group-id="${c.dataset.groupId}"] .expand-icon`)?.classList.toggle('expanded',!all)});$('toggleAllBtn').textContent=all?'▼ Expandir Tudo':'▲ Recolher Tudo'}
+function setup(){document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));tab.classList.add('active');currentTab=tab.dataset.tab;refresh()});['centroFilter','funcaoFilter','anoFilter','mesFilter','gestorFilter','funcionarioFilter'].forEach(id=>$(id).onchange=refresh);$('toggleAllBtn').onclick=toggleAll;addEventListener('scroll',hideTip,{passive:true})}
+async function load(){try{const r=await fetch('./dados.json',{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);const raw=await r.json();if(!Array.isArray(raw))throw new Error('o conteúdo precisa ser uma lista JSON');dadosFerias=raw.map(normalizeRecord).filter(x=>x.colaborador&&x.inicio&&x.fim);monthsHeader();populate();setup();refresh()}catch(err){console.error(err);$('timelineContent').innerHTML=`<div class="empty" style="color:#b00020">Erro ao carregar dados.json: ${escapeHTML(err.message)}. Abra o projeto por um servidor web, não diretamente por file://.</div>`}}
+function monthsHeader(){const h=$('monthsHeader');h.innerHTML='';meses.forEach(m=>{const d=document.createElement('div');d.className='month-header';d.textContent=m;h.append(d)})}
+load();
+  </script>
+ </body>
 </html>
