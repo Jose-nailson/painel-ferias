@@ -27,7 +27,7 @@
         "Linha Origem": 13,
         "Grupo": 2,
         "Dias_Rotulo": "12-16",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|12/01/Monday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|12/01/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -42,7 +42,7 @@
         "Linha Origem": 20,
         "Grupo": 3,
         "Dias_Rotulo": "19-23",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|19/01/Monday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|19/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -57,7 +57,7 @@
         "Linha Origem": 68,
         "Grupo": 4,
         "Dias_Rotulo": "5-9",
-        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|05/01/Monday"
+        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|05/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -72,7 +72,7 @@
         "Linha Origem": 96,
         "Grupo": 5,
         "Dias_Rotulo": "2",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|02/01/Friday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|02/01/2026"
     },
     {
         "Núcleo": "BOLSISTA",
@@ -87,7 +87,7 @@
         "Linha Origem": 161,
         "Grupo": 6,
         "Dias_Rotulo": "5-19",
-        "Chave_Rotulo": "ANA PAULA VIANA DE SOUSA|05/01/Monday"
+        "Chave_Rotulo": "ANA PAULA VIANA DE SOUSA|05/01/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -102,7 +102,7 @@
         "Linha Origem": 192,
         "Grupo": 7,
         "Dias_Rotulo": "5-6",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|05/01/Monday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|05/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -117,7 +117,7 @@
         "Linha Origem": 219,
         "Grupo": 8,
         "Dias_Rotulo": "1-2",
-        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|01/01/Thursday"
+        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|01/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -132,7 +132,7 @@
         "Linha Origem": 270,
         "Grupo": 9,
         "Dias_Rotulo": "21-23",
-        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|21/01/Wednesday"
+        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|21/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -147,7 +147,7 @@
         "Linha Origem": 281,
         "Grupo": 10,
         "Dias_Rotulo": "1-17",
-        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|01/01/Thursday"
+        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|01/01/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -162,7 +162,7 @@
         "Linha Origem": 313,
         "Grupo": 11,
         "Dias_Rotulo": "2",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|02/01/Friday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|02/01/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -177,7 +177,7 @@
         "Linha Origem": 325,
         "Grupo": 12,
         "Dias_Rotulo": "14",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|14/01/Wednesday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|14/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -192,7 +192,7 @@
         "Linha Origem": 351,
         "Grupo": 13,
         "Dias_Rotulo": "9",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|09/01/Friday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|09/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -207,7 +207,7 @@
         "Linha Origem": 372,
         "Grupo": 14,
         "Dias_Rotulo": "30",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|30/01/Friday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|30/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -222,7 +222,7 @@
         "Linha Origem": 409,
         "Grupo": 15,
         "Dias_Rotulo": "5-9",
-        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|05/01/Monday"
+        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|05/01/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -237,7 +237,7 @@
         "Linha Origem": 416,
         "Grupo": 16,
         "Dias_Rotulo": "12-29",
-        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|12/01/Monday"
+        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|12/01/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -252,7 +252,7 @@
         "Linha Origem": 626,
         "Grupo": 17,
         "Dias_Rotulo": "5-6",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|05/02/Thursday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|05/02/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -267,7 +267,7 @@
         "Linha Origem": 657,
         "Grupo": 18,
         "Dias_Rotulo": "5-6",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|05/02/Thursday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|05/02/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -282,7 +282,7 @@
         "Linha Origem": 661,
         "Grupo": 19,
         "Dias_Rotulo": "9-10",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|09/02/Monday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|09/02/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -297,7 +297,7 @@
         "Linha Origem": 737,
         "Grupo": 20,
         "Dias_Rotulo": "23-28",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|23/02/Monday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|23/02/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -312,7 +312,7 @@
         "Linha Origem": 878,
         "Grupo": 21,
         "Dias_Rotulo": "9-13",
-        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|09/02/Monday"
+        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|09/02/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -327,7 +327,7 @@
         "Linha Origem": 936,
         "Grupo": 22,
         "Dias_Rotulo": "5-6",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|05/02/Thursday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|05/02/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -342,7 +342,7 @@
         "Linha Origem": 940,
         "Grupo": 23,
         "Dias_Rotulo": "9-13",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|09/02/Monday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|09/02/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -357,7 +357,7 @@
         "Linha Origem": 949,
         "Grupo": 24,
         "Dias_Rotulo": "18-12",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|18/02/Wednesday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|18/02/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -372,7 +372,7 @@
         "Linha Origem": 1347,
         "Grupo": 25,
         "Dias_Rotulo": "13",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|13/03/Friday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|13/03/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -387,7 +387,7 @@
         "Linha Origem": 1443,
         "Grupo": 26,
         "Dias_Rotulo": "16-20",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|16/03/Monday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|16/03/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -402,7 +402,7 @@
         "Linha Origem": 1450,
         "Grupo": 27,
         "Dias_Rotulo": "23-27",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|23/03/Monday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|23/03/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -417,7 +417,7 @@
         "Linha Origem": 1531,
         "Grupo": 28,
         "Dias_Rotulo": "11-13",
-        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|11/03/Wednesday"
+        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|11/03/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -432,7 +432,7 @@
         "Linha Origem": 1584,
         "Grupo": 29,
         "Dias_Rotulo": "2-12",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|02/03/Monday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|02/03/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -447,7 +447,7 @@
         "Linha Origem": 1595,
         "Grupo": 30,
         "Dias_Rotulo": "13",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|13/03/Friday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|13/03/2026"
     },
     {
         "Núcleo": "APOIO",
@@ -462,7 +462,7 @@
         "Linha Origem": 1753,
         "Grupo": 31,
         "Dias_Rotulo": "16-31",
-        "Chave_Rotulo": "THYCYANNE ALVES BEZERRA OLIVEIRA|16/03/Monday"
+        "Chave_Rotulo": "THYCYANNE ALVES BEZERRA OLIVEIRA|16/03/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -477,7 +477,7 @@
         "Linha Origem": 2057,
         "Grupo": 32,
         "Dias_Rotulo": "10",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|10/04/Friday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|10/04/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -492,7 +492,7 @@
         "Linha Origem": 2069,
         "Grupo": 33,
         "Dias_Rotulo": "22-24",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|22/04/Wednesday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|22/04/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -507,7 +507,7 @@
         "Linha Origem": 2084,
         "Grupo": 34,
         "Dias_Rotulo": "6-10",
-        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|06/04/Monday"
+        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|06/04/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -522,7 +522,7 @@
         "Linha Origem": 2098,
         "Grupo": 35,
         "Dias_Rotulo": "20",
-        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|20/04/Monday"
+        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|20/04/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -537,7 +537,7 @@
         "Linha Origem": 2222,
         "Grupo": 36,
         "Dias_Rotulo": "20",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|20/04/Monday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|20/04/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -552,7 +552,7 @@
         "Linha Origem": 2488,
         "Grupo": 37,
         "Dias_Rotulo": "7-8",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|07/05/Thursday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|07/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -567,7 +567,7 @@
         "Linha Origem": 2494,
         "Grupo": 38,
         "Dias_Rotulo": "13",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|13/05/Wednesday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|13/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -582,7 +582,7 @@
         "Linha Origem": 2506,
         "Grupo": 39,
         "Dias_Rotulo": "25-27",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|25/05/Monday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|25/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -597,7 +597,7 @@
         "Linha Origem": 2509,
         "Grupo": 40,
         "Dias_Rotulo": "28-30",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|28/05/Thursday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|28/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -612,7 +612,7 @@
         "Linha Origem": 2519,
         "Grupo": 41,
         "Dias_Rotulo": "7-8",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|07/05/Thursday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|07/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -627,7 +627,7 @@
         "Linha Origem": 2525,
         "Grupo": 42,
         "Dias_Rotulo": "13",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|13/05/Wednesday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|13/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -642,7 +642,7 @@
         "Linha Origem": 2540,
         "Grupo": 43,
         "Dias_Rotulo": "28-30",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|28/05/Thursday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|28/05/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -657,7 +657,7 @@
         "Linha Origem": 2568,
         "Grupo": 44,
         "Dias_Rotulo": "25-31",
-        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|25/05/Monday"
+        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|25/05/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -672,7 +672,7 @@
         "Linha Origem": 2601,
         "Grupo": 45,
         "Dias_Rotulo": "27",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|27/05/Wednesday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|27/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -687,7 +687,7 @@
         "Linha Origem": 2688,
         "Grupo": 46,
         "Dias_Rotulo": "21",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|21/05/Thursday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|21/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -702,7 +702,7 @@
         "Linha Origem": 2795,
         "Grupo": 47,
         "Dias_Rotulo": "4-18",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|04/05/Monday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|04/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -717,7 +717,7 @@
         "Linha Origem": 2810,
         "Grupo": 48,
         "Dias_Rotulo": "19",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|19/05/Tuesday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|19/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -732,7 +732,7 @@
         "Linha Origem": 2819,
         "Grupo": 49,
         "Dias_Rotulo": "28-29",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|28/05/Thursday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|28/05/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -747,7 +747,7 @@
         "Linha Origem": 2836,
         "Grupo": 50,
         "Dias_Rotulo": "14",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|14/05/Thursday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|14/05/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -762,7 +762,7 @@
         "Linha Origem": 2837,
         "Grupo": 51,
         "Dias_Rotulo": "15-31",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|15/05/Friday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|15/05/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -777,7 +777,7 @@
         "Linha Origem": 2866,
         "Grupo": 52,
         "Dias_Rotulo": "13-15",
-        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|13/05/Wednesday"
+        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|13/05/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -792,7 +792,7 @@
         "Linha Origem": 3156,
         "Grupo": 53,
         "Dias_Rotulo": "24-30",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|24/06/Wednesday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|24/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -807,7 +807,7 @@
         "Linha Origem": 3192,
         "Grupo": 54,
         "Dias_Rotulo": "29-30",
-        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|29/06/Monday"
+        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|29/06/2026"
     },
     {
         "Núcleo": "BOLSISTA",
@@ -822,7 +822,7 @@
         "Linha Origem": 3272,
         "Grupo": 55,
         "Dias_Rotulo": "16-30",
-        "Chave_Rotulo": "ANA PAULA VIANA DE SOUSA|16/06/Tuesday"
+        "Chave_Rotulo": "ANA PAULA VIANA DE SOUSA|16/06/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -837,7 +837,7 @@
         "Linha Origem": 3295,
         "Grupo": 56,
         "Dias_Rotulo": "8",
-        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|08/06/Monday"
+        "Chave_Rotulo": "JORGE ANDRÉ BRASIL LIMA|08/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -852,7 +852,7 @@
         "Linha Origem": 3378,
         "Grupo": 57,
         "Dias_Rotulo": "29-30",
-        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|29/06/Monday"
+        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|29/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -867,7 +867,7 @@
         "Linha Origem": 3395,
         "Grupo": 58,
         "Dias_Rotulo": "15-23",
-        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|15/06/Monday"
+        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|15/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -882,7 +882,7 @@
         "Linha Origem": 3405,
         "Grupo": 59,
         "Dias_Rotulo": "25-29",
-        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|25/06/Thursday"
+        "Chave_Rotulo": "GEORGIA MARIA A. GABINIO|25/06/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -897,7 +897,7 @@
         "Linha Origem": 3416,
         "Grupo": 60,
         "Dias_Rotulo": "5",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|05/06/Friday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|05/06/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -912,7 +912,7 @@
         "Linha Origem": 3421,
         "Grupo": 61,
         "Dias_Rotulo": "10",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|10/06/Wednesday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|10/06/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -927,7 +927,7 @@
         "Linha Origem": 3426,
         "Grupo": 62,
         "Dias_Rotulo": "15",
-        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|15/06/Monday"
+        "Chave_Rotulo": "VITHOR OLIVEIRA CAMINHA|15/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -942,7 +942,7 @@
         "Linha Origem": 3443,
         "Grupo": 63,
         "Dias_Rotulo": "1-14",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|01/06/Monday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|01/06/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -957,7 +957,7 @@
         "Linha Origem": 3502,
         "Grupo": 64,
         "Dias_Rotulo": "29-30",
-        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|29/06/Monday"
+        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|29/06/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -972,7 +972,7 @@
         "Linha Origem": 3727,
         "Grupo": 65,
         "Dias_Rotulo": "6-25",
-        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|06/07/Monday"
+        "Chave_Rotulo": "CARLOS GEOVANNI GONÇALVES SOARES|06/07/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -987,7 +987,7 @@
         "Linha Origem": 3761,
         "Grupo": 66,
         "Dias_Rotulo": "9-10",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|09/07/Thursday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|09/07/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1002,7 +1002,7 @@
         "Linha Origem": 3951,
         "Grupo": 67,
         "Dias_Rotulo": "13-17",
-        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|13/07/Monday"
+        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|13/07/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1017,7 +1017,7 @@
         "Linha Origem": 4099,
         "Grupo": 68,
         "Dias_Rotulo": "6-10",
-        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|06/07/Monday"
+        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|06/07/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1032,7 +1032,7 @@
         "Linha Origem": 4106,
         "Grupo": 69,
         "Dias_Rotulo": "13",
-        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|13/07/Monday"
+        "Chave_Rotulo": "RAIMUNDO SOARES DA COSTA FILHO|13/07/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1047,7 +1047,7 @@
         "Linha Origem": 4688,
         "Grupo": 70,
         "Dias_Rotulo": "6",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|06/08/Thursday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|06/08/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1062,7 +1062,7 @@
         "Linha Origem": 4689,
         "Grupo": 71,
         "Dias_Rotulo": "7",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|07/08/Friday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|07/08/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1077,7 +1077,7 @@
         "Linha Origem": 4768,
         "Grupo": 72,
         "Dias_Rotulo": "24-31",
-        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|24/08/Monday"
+        "Chave_Rotulo": "LYSANKA DOS SANTOS XAVIER|24/08/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -1092,7 +1092,7 @@
         "Linha Origem": 4996,
         "Grupo": 73,
         "Dias_Rotulo": "4",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|04/09/Friday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|04/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1107,7 +1107,7 @@
         "Linha Origem": 5031,
         "Grupo": 74,
         "Dias_Rotulo": "8-27",
-        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|08/09/Tuesday"
+        "Chave_Rotulo": "AILMA DIAS DE HOLANDA|08/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1122,7 +1122,7 @@
         "Linha Origem": 5082,
         "Grupo": 75,
         "Dias_Rotulo": "28-29",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|28/09/Monday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|28/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1137,7 +1137,7 @@
         "Linha Origem": 5084,
         "Grupo": 76,
         "Dias_Rotulo": "30",
-        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|30/09/Wednesday"
+        "Chave_Rotulo": "MARIA FERNANDA DINIZ NUNES BRASIL|30/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1152,7 +1152,7 @@
         "Linha Origem": 5217,
         "Grupo": 77,
         "Dias_Rotulo": "8-22",
-        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|08/09/Tuesday"
+        "Chave_Rotulo": "FERNANDA NOVAIS CRUZ LIMA COSTA|08/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1167,7 +1167,7 @@
         "Linha Origem": 5310,
         "Grupo": 78,
         "Dias_Rotulo": "8-11",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|08/09/Tuesday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|08/09/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1182,7 +1182,22 @@
         "Linha Origem": 5316,
         "Grupo": 79,
         "Dias_Rotulo": "14-18",
-        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|14/09/Monday"
+        "Chave_Rotulo": "LUANA CAVALCANTI PORTO|14/09/2026"
+    },
+    {
+        "Núcleo": "APOIO",
+        "Matrícula": "C026795",
+        "Nome": "JOSÉ NAILSON SALES MORAIS JUNIOR",
+        "Célula": "CESUP",
+        "Tipo": "FER",
+        "Início": "2026-09-04",
+        "Fim": "2026-09-04",
+        "Duração": 1,
+        "Rótulo": "FER 04/09",
+        "Linha Origem": 5430,
+        "Grupo": 80,
+        "Dias_Rotulo": "4",
+        "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|04/09/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -1195,9 +1210,9 @@
         "Duração": 10,
         "Rótulo": "FER 13/10 - 22/10",
         "Linha Origem": 5625,
-        "Grupo": 80,
+        "Grupo": 81,
         "Dias_Rotulo": "13-22",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|13/10/Tuesday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|13/10/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -1210,9 +1225,9 @@
         "Duração": 1,
         "Rótulo": "FEL 23/10",
         "Linha Origem": 5635,
-        "Grupo": 81,
+        "Grupo": 82,
         "Dias_Rotulo": "23",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|23/10/Friday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|23/10/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -1225,9 +1240,9 @@
         "Duração": 2,
         "Rótulo": "FEL 26/10 - 27/10",
         "Linha Origem": 5638,
-        "Grupo": 82,
+        "Grupo": 83,
         "Dias_Rotulo": "26-27",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|26/10/Monday"
+        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|26/10/2026"
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1240,9 +1255,9 @@
         "Duração": 20,
         "Rótulo": "FER 26/10 - 14/11",
         "Linha Origem": 5824,
-        "Grupo": 83,
+        "Grupo": 84,
         "Dias_Rotulo": "26-14",
-        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|26/10/Monday"
+        "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|26/10/2026"
     },
     {
         "Núcleo": "GESTÃO",
@@ -1255,9 +1270,9 @@
         "Duração": 4,
         "Rótulo": "FER 28/12 - 31/12",
         "Linha Origem": 6880,
-        "Grupo": 84,
-        "Dias_Rotulo": "28-31",
-        "Chave_Rotulo": "CAMILA MAIA SALES MOTA|28/12/Monday"
+        "Grupo": 85,
+        "Dias_Rotulo": NaN,
+        "Chave_Rotulo": NaN
     },
     {
         "Núcleo": "FUNCIONÁRIO",
@@ -1270,7 +1285,7 @@
         "Duração": 1,
         "Rótulo": "FOL 07/12",
         "Linha Origem": 7045,
-        "Grupo": 85,
+        "Grupo": 86,
         "Dias_Rotulo": NaN,
         "Chave_Rotulo": NaN
     },
@@ -1285,7 +1300,7 @@
         "Duração": 4,
         "Rótulo": "FER 28/12 - 31/12",
         "Linha Origem": 7128,
-        "Grupo": 86,
+        "Grupo": 87,
         "Dias_Rotulo": NaN,
         "Chave_Rotulo": NaN
     }
