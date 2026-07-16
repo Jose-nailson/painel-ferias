@@ -1190,14 +1190,14 @@
         "Nome": "JOSÉ NAILSON SALES MORAIS JUNIOR",
         "Célula": "CESUP",
         "Tipo": "FER",
-        "Início": "2026-09-04",
+        "Início": "2026-09-02",
         "Fim": "2026-09-04",
-        "Duração": 1.0,
-        "Rótulo": "FER 04/09",
-        "Linha Origem": 5430.0,
+        "Duração": 3.0,
+        "Rótulo": "FER 02/09 - 04/09",
+        "Linha Origem": 5428.0,
         "Grupo": 80.0,
-        "Dias_Rotulo": "4",
-        "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|04/09/2026"
+        "Dias_Rotulo": "2-4",
+        "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|02/09/2026"
     },
     {
         "Núcleo": "GESTÃO",
