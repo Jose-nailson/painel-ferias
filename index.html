@@ -1107,47 +1107,50 @@
     // ==========================================
     // 8. Carregamento Assíncrono Principal
     // ==========================================
-    async function load() {
-      try {
-        // 1. Evita Cache agressivo do navegador
-        const timestamp = new Date().getTime();
-        const r = await fetch(`./dados.json?v=${timestamp}`, { cache: 'no-store' });
-
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-
-        const raw = await r.json();
-        if (!Array.isArray(raw)) throw new Error('O conteúdo precisa ser uma lista JSON');
-
-        console.log("1. Total de linhas recebidas do Excel:", raw.length);
-
-        // 2. Filtro de segurança e logging de avisos
-        dadosFerias = raw.map(normalizeRecord).filter((x, index) => {
-          const isValido = x.colaborador && x.inicio && x.fim;
-          if (!isValido) {
-            console.warn(
-              `Aviso: A linha ${index + 2} do Excel foi ignorada. Verifique se o formato da data está correto (DD/MM/AAAA) ou se falta o nome. Dados lidos:`, 
-              x
-            );
-          }
-          return isValido;
+    // A NOVA FUNÇÃO DE CARREGAMENTO (Cache-Busting Agressivo)
+async function load() {
+    try {
+        // 1. Gera um código único garantido a cada milissegundo
+        const antiCacheToken = new Date().getTime().toString() + Math.random().toString().substring(2);
+        
+        // 2. Força cabeçalhos rigorosos para o navegador e para o servidor do GitHub
+        const headersAgressivos = new Headers({
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
         });
 
-        console.log("2. Eventos perfeitamente formatados para o gráfico:", dadosFerias.length);
-
+        // 3. Faz o pedido com o token único e os cabeçalhos
+        const r = await fetch(`./dados.json?_t=${antiCacheToken}`, { 
+            method: 'GET',
+            headers: headersAgressivos,
+            cache: 'no-store' 
+        });
+        
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        
+        const raw = await r.json();
+        if (!Array.isArray(raw)) throw new Error('O conteúdo precisa ser uma lista JSON');
+        
+        // 4. O Filtro de Erros (mantido para sua segurança)
+        dadosFerias = raw.map(normalizeRecord).filter((x, index) => {
+            const isValido = x.colaborador && x.inicio && x.fim;
+            if (!isValido) {
+                console.warn(`Aviso: Linha ${index + 2} ignorada. Dados lidos:`, x);
+            }
+            return isValido;
+        });
+        
         monthsHeader();
         populate();
         setup();
         refresh();
-
-      } catch (err) {
-        console.error(err);
-        $('timelineContent').innerHTML = `
-          <div class="empty" style="color:#b00020">
-            Erro ao carregar dados.json: ${escapeHTML(err.message)}.
-          </div>
-        `;
-      }
+        
+    } catch (err) {
+        console.error("Falha ao carregar:", err);
+        $('timelineContent').innerHTML = `<div class="empty" style="color:#b00020">Erro ao atualizar dados: ${escapeHTML(err.message)}. Verifique se o GitHub Pages já publicou a versão mais recente.</div>`;
     }
+}
 
     // Inicialização automática do painel
     load();
