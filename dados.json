@@ -1190,27 +1190,12 @@
     "Nome": "JOSÉ NAILSON SALES MORAIS JUNIOR",
     "Célula": "CESUP",
     "Tipo": "FER",
-    "Início": "02/09/2026",
-    "Fim": "02/09/2026",
-    "Duração": "1",
-    "Rótulo": "FER 02/09",
-    "Linha Origem": "5428",
-    "Grupo": "80",
-    "Dias_Rotulo": "2",
-    "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|02/09/2026"
-  },
-  {
-    "Núcleo": "APOIO",
-    "Matrícula": "C026795",
-    "Nome": "JOSÉ NAILSON SALES MORAIS JUNIOR",
-    "Célula": "CESUP",
-    "Tipo": "FER",
     "Início": "08/09/2026",
     "Fim": "25/09/2026",
     "Duração": "18",
     "Rótulo": "FER 08/09 - 25/09",
     "Linha Origem": "5434",
-    "Grupo": "81",
+    "Grupo": "80",
     "Dias_Rotulo": "8-25",
     "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|08/09/2026"
   },
@@ -1225,7 +1210,7 @@
     "Duração": "10",
     "Rótulo": "FER 13/10 - 22/10",
     "Linha Origem": "5625",
-    "Grupo": "82",
+    "Grupo": "81",
     "Dias_Rotulo": "13-22",
     "Chave_Rotulo": "CAMILA MAIA SALES MOTA|13/10/2026"
   },
@@ -1240,7 +1225,7 @@
     "Duração": "1",
     "Rótulo": "FEL 23/10",
     "Linha Origem": "5635",
-    "Grupo": "83",
+    "Grupo": "82",
     "Dias_Rotulo": "23",
     "Chave_Rotulo": "CAMILA MAIA SALES MOTA|23/10/2026"
   },
@@ -1255,7 +1240,7 @@
     "Duração": "2",
     "Rótulo": "FEL 26/10 - 27/10",
     "Linha Origem": "5638",
-    "Grupo": "84",
+    "Grupo": "83",
     "Dias_Rotulo": "26-27",
     "Chave_Rotulo": "CAMILA MAIA SALES MOTA|26/10/2026"
   },
@@ -1270,9 +1255,9 @@
     "Duração": "20",
     "Rótulo": "FER 26/10 - 14/11",
     "Linha Origem": "5824",
-    "Grupo": "85",
-    "Dias_Rotulo": "",
-    "Chave_Rotulo": ""
+    "Grupo": "84",
+    "Dias_Rotulo": "26-14",
+    "Chave_Rotulo": "ADRIANO LEITE DE MACÊDO|26/10/2026"
   },
   {
     "Núcleo": "GESTÃO",
@@ -1285,7 +1270,7 @@
     "Duração": "4",
     "Rótulo": "FER 28/12 - 31/12",
     "Linha Origem": "6880",
-    "Grupo": "86",
+    "Grupo": "85",
     "Dias_Rotulo": "",
     "Chave_Rotulo": ""
   },
@@ -1300,7 +1285,7 @@
     "Duração": "1",
     "Rótulo": "FOL 07/12",
     "Linha Origem": "7045",
-    "Grupo": "87",
+    "Grupo": "86",
     "Dias_Rotulo": "",
     "Chave_Rotulo": ""
   },
@@ -1315,7 +1300,7 @@
     "Duração": "4",
     "Rótulo": "FER 28/12 - 31/12",
     "Linha Origem": "7128",
-    "Grupo": "88",
+    "Grupo": "87",
     "Dias_Rotulo": "",
     "Chave_Rotulo": ""
   }
