@@ -1206,12 +1206,12 @@
     "Célula": "CESUP",
     "Tipo": "FER",
     "Início": "08/09/2026",
-    "Fim": "30/09/2026",
-    "Duração": "23",
-    "Rótulo": "FER 08/09 - 30/09",
+    "Fim": "25/09/2026",
+    "Duração": "18",
+    "Rótulo": "FER 08/09 - 25/09",
     "Linha Origem": "5434",
     "Grupo": "81",
-    "Dias_Rotulo": "8-30",
+    "Dias_Rotulo": "8-25",
     "Chave_Rotulo": "JOSÉ NAILSON SALES MORAIS JUNIOR|08/09/2026"
   },
   {
